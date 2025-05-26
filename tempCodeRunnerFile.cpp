@@ -15,13 +15,29 @@ using namespace std;
 
 int main(int argc, char* argv[]){
 
-	string locationsFilename = "locations.csv";
-	string routesFilename = "routes.csv";
+	string citiesFilename;
+	string routesFilename;
 	string outputFilename;
 	string origin;
 	string destination;
 	string preference;
 	bool biPreference;
+
+	if(argc > 1){
+		citiesFilename = argv[1];
+	}
+	else{
+		cout << "Enter filename containing cities: ";
+		cin >> citiesFilename;
+	}
+
+	if(argc > 2){
+		routesFilename  = argv[2];
+	}
+	else{
+		cout << "Enter filename containing routes: ";
+		cin >> routesFilename;
+	}
 
 	if(argc > 3){
 		outputFilename = argv[3];
@@ -66,7 +82,7 @@ int main(int argc, char* argv[]){
 		return 0;
 	}
 
-	Graph graph(locationsFilename, routesFilename);
+	Graph graph(citiesFilename, routesFilename);
 
 	cout << "Origin entered: " << origin << endl;
 	cout << "Destination entered: " << destination << endl;
@@ -76,11 +92,11 @@ int main(int argc, char* argv[]){
 
 	if (originCity == NULL)
 	{
-		cout << "Origin not found in graph!" << endl;
+		cout << "Origin city not found in graph!" << endl;
 	}
 	if (destCity == NULL)
 	{
-		cout << "Destination not found in graph!" << endl;
+		cout << "Destination city not found in graph!" << endl;
 	}
 
 	graph.Dijkstras(origin,biPreference);
