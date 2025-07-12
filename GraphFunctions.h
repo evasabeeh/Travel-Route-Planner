@@ -42,7 +42,6 @@ public:
 	
 	stack<Location*>cityStacker(string destinationS);
 	stack<Route*> routeStacker(string destinationS, bool costOrTime);
-
 };
 
 Graph::Graph(string nodesFile, string edgesFile){

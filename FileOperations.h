@@ -1,4 +1,4 @@
-//// Provides functions for parsing city and route data from files and generating an HTML file to visualize the route on a Google Map. Here's a breakdown of the code:
+// Provides functions for parsing location and route data from files and generating an HTML file to visualize the route on a Google Map.
 
 #ifndef FILEOPERATIONS_H
 #define FILEOPERATIONS_H
@@ -47,7 +47,7 @@ vector<Location*> locationParser(string filename, vector<Route*> routes){
 		}
 		cities.push_back(node);
 	}
-	cout << "Cities Parsed from: " << filename << endl;
+	cout << "Locations parsed from: " << filename << endl;
 	return cities;
 }
 
@@ -84,7 +84,7 @@ vector<Route*> routeParser(string filename){
 		allRoutes.push_back(edge);
 	}
 
-	cout << "Routes Parsed from: " << filename << endl;
+	cout << "Routes parsed from: " << filename << endl;
 	return allRoutes;
 }
 
@@ -94,7 +94,7 @@ void outputGenerator(string filename, stack<Location*> cities, stack<Route*> rou
 	ofstream output(filename.c_str());
 
 	// It sets up the HTML structure and Google Maps JavaScript API.
-	output << "<HTML><HEAD><TITLE>Shortest path </TITLE></HEAD><script type='text/javascript' src='http://maps.google.com/maps/api/js?sensor=false'></script><script>function initialize() { var myOptions = { zoom: 3, center: new google.maps.LatLng(0, 0), mapTypeId: google.maps.MapTypeId.ROADMAP};var map=new google.maps.Map(document.getElementById('map'), myOptions);\n";
+	output << "<HTML><HEAD><TITLE>Route Planner</TITLE></HEAD><script type='text/javascript' src='http://maps.google.com/maps/api/js?sensor=false'></script><script>function initialize() { var myOptions = { zoom: 3, center: new google.maps.LatLng(0, 0), mapTypeId: google.maps.MapTypeId.ROADMAP};var map=new google.maps.Map(document.getElementById('map'), myOptions);\n";
 
 	int markerCount = 0;
 	int contentStringCount = 0;

@@ -49,7 +49,7 @@ vector<Location*> locationParser(string filename, vector<Route*> routes){
 
 		cities.push_back(node);
 	}
-	cout << "Cities Parsed from: " << filename << endl;
+	cout << "Locations parsed from: " << filename << endl;
 	return cities;
 }
 
@@ -86,7 +86,7 @@ vector<Route*> routeParser(string filename){
 
 		allRoutes.push_back(edge);
 	}
-	cout << "Routes Parsed from: " << filename << endl;
+	cout << "Routes parsed from: " << filename << endl;
 	return allRoutes;
 }
 
